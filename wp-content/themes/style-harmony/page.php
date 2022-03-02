@@ -22,10 +22,14 @@ get_header();
 function console_log( $value, $jsonify = false ) {
 	$string = '`' . $value . '`';
 	if ( $jsonify ) {
-		$value  = ( json_encode( $value ) );
-		$string = 'JSON.parse(`' . $value . '`)';
+		$value  = json_encode( $value );
+		$string = 'JSON.parse(`' . $value . '`.replaceAll("\n", ""))';
 	}
 	echo '<script>console.log(' . $string . ')</script>';
+}
+
+function alert( $value, $text = '' ) {
+	echo '<script>setTimeout(() => alert(`' . $text . ' ==> ' . ( $value ) . '`))</script>';
 }
 
 function separate_title( $title, $words_until_separation ) {
@@ -288,9 +292,8 @@ if ( have_posts() ): while ( have_posts() ): the_post();
 		                         ) );
 		function print_icon() {
 			$selected_icon = get_field( 'selected_icon' );
-			console_log( $selected_icon );
-			$icon = '';
-			$type = '';
+			$icon          = '';
+			$type          = '';
 			switch ( $selected_icon ) {
 				case strpos( $selected_icon, 'bigmug' ):
 					$icon = get_field( 'bigmug' );
@@ -387,50 +390,54 @@ if ( have_posts() ): while ( have_posts() ): the_post();
 
 <!-- Преимущества -->
 <?php if ( $settings[ 'show_banner_1' ] === 'Да' ):
-		$banner = get_posts( array(
-			                     'numberposts'      => 1,
-			                     'post_type'        => 'banner',
-			                     'suppress_filters' => true,
-			                     'order'            => 'ASC',
-			                     'meta_key'         => 'sort',
-			                     'orderby'          => 'meta_value'
-		                     ) );
-		if (true /* count( $banner ) > 0 */ ):
+
+		$banner = $settings[ 'banner_object' ];
+
+		if ( isset( $banner ) ):
 			?>
+
+
             <section class="section section-sm bg-default text-md-center">
-            <div class="parallax-container"
-                 data-parallax-img="https://livedemo00.template-help.com/wt_prod-22310/images/bg-cta-2.jpg">
-              <div class="parallax-content section-xl section-inset-custom-2 context-dark">
+                <?php
+                $banner_id = $banner->ID;
+
+                $image_url = has_post_thumbnail( $banner_id ) ? get_the_post_thumbnail_url( $banner_id ) : '';
+
+                $title                  = $banner->post_title;
+                $words_until_separation = $banner->words_until_separation;
+                $separated_parts        = separate_title( $title, $words_until_separation );
+                list( $first_part, $second_part ) = $separated_parts;
+
+                ?>
+
+                <div class="parallax-container"
+                     data-parallax-img="<?php echo $image_url; ?>">
+
+                                <div class="parallax-content section-xl section-inset-custom-2 context-dark">
                 <div class="container">
                   <div class="row justify-content-center">
-                      <?php
-                      foreach ( $banner as $index => $post ):
-	                      setup_postdata( $post );
 
-	                      $title                  = get_the_title();
-	                      $words_until_separation = get_field( 'words_until_separation' );
-	                      $separated_parts        = separate_title( $title, $words_until_separation );
-	                      list( $first_part, $second_part ) = $separated_parts;
-	                      ?>
-                          <div class="col-md-7 col-lg-6">
-                      <h3 class="oh font-weight-normal"><span class="d-inline-block wow slideInDown"
-                                                              data-wow-delay="0s"><?php echo $first_part ?><br><?php echo $second_part ?></span></h3>
+
+
+                    <div class="col-md-7 col-lg-6">
+                      <h3 class="oh font-weight-normal">
+                          <span class="d-inline-block wow slideInDown" data-wow-delay="0s">
+                              <?php echo $first_part ?><br><?php echo $second_part ?>
+                          </span>
+                      </h3>
                       <p class="text-spacing-75 wow fadeInRight"
-                         data-wow-delay=".1s"><?php the_content() ?></p>
+                         data-wow-delay=".1s"><?php echo $banner->post_content ?></p>
                               <a class="button button-primary button-ujarak wow fadeInUp"
-                                 href="#"
-                                 data-wow-delay=".2s"><?php the_field( 'button_text' ); ?></a>
+                                 href="<?php the_field( 'link', $banner_id ); ?>"
+                                 data-wow-delay=".2s"><?php the_field( 'button_text', $banner_id );
+	                              ?></a>
                     </div>
-	                      <?php
-	                      wp_reset_postdata();
-                      endforeach;
-                      ?>
+
                   </div>
                 </div>
               </div>
             </div>
           </section>
-
 		<?php endif; ?>
 	<?php endif; ?>
 
@@ -438,6 +445,9 @@ if ( have_posts() ): while ( have_posts() ): the_post();
 
 
     
+
+
+
 
     <section class="section section-sm bg-default"
              id="projects"
@@ -606,6 +616,9 @@ if ( have_posts() ): while ( have_posts() ): the_post();
 
     
 
+
+
+
     <section class="section section-sm bg-default">
         <div class="container">
           <div class="oh">
@@ -673,6 +686,9 @@ if ( have_posts() ): while ( have_posts() ): the_post();
 
 
     
+
+
+
 
     <section class="section section-sm bg-default"
              id="testimonials"
@@ -765,6 +781,9 @@ if ( have_posts() ): while ( have_posts() ): the_post();
 
     
 
+
+
+
     <section class="section section-sm bg-default"
              id="team"
              data-type="anchor">
@@ -844,6 +863,9 @@ if ( have_posts() ): while ( have_posts() ): the_post();
 
 
     
+
+
+
 
     <section class="section section-sm bg-default">
         <div class="container">
@@ -1001,6 +1023,9 @@ if ( have_posts() ): while ( have_posts() ): the_post();
 
     
 
+
+
+
     <section class="section section-md bg-default"
              id="news"
              data-type="anchor">
@@ -1138,6 +1163,9 @@ if ( have_posts() ): while ( have_posts() ): the_post();
 
     
 
+
+
+
     <section class="section bg-default text-center">
         <div class="parallax-container"
              data-parallax-img="https://livedemo00.template-help.com/wt_prod-22310/images/bg-cta-3.jpg">
@@ -1228,6 +1256,9 @@ if ( have_posts() ): while ( have_posts() ): the_post();
 
     
 
+
+
+
     <section class="section section-sm section-first bg-default"
              id="contacts"
              data-type="anchor">
@@ -1288,6 +1319,9 @@ if ( have_posts() ): while ( have_posts() ): the_post();
 
 
     
+
+
+
 
     <section class="section section-sm section-last bg-default text-md-left">
         <div class="container">
