@@ -440,6 +440,65 @@ function style_symfony_setup() {
 			'rewrite'             => true,
 			'query_var'           => true,
 		] );
+
+		register_post_type( 'review', [
+			'label'               => NULL,
+			'labels'              => [
+				'name'               => 'Отзывы',
+				'singular_name'      => 'Отзыв',
+
+				// название для одной записи этого типа
+				'add_new'            => 'Добавить отзыв',
+				// для добавления новой записи
+				'add_new_item'       => 'Добавление отзыва',
+				// заголовка у вновь создаваемой записи в админ-панели.
+				'edit_item'          => 'Редактирование отзыва',
+				// для редактирования типа записи
+				'new_item'           => 'Новый отзыв',
+				// текст новой записи
+				'view_item'          => 'Смотреть отзыв',
+				// для просмотра записи этого типа.
+				'search_items'       => 'Искать отзыв',
+				// для поиска по этим типам записи
+				'not_found'          => 'Не найдено',
+				// если в результате поиска ничего не было найдено
+				'not_found_in_trash' => 'Не найдено в корзине',
+				// если не было найдено в корзине
+				'parent_item_colon'  => '',
+				// для родителей (у древовидных типов)
+				'menu_name'          => 'Отзывы',
+				// название меню
+			],
+			'description'         => 'Отзывы',
+			'public'              => true,
+			'publicly_queryable'  => true,
+			// зависит от public
+			'exclude_from_search' => false,
+			// зависит от public
+			'show_ui'             => true,
+			// зависит от public
+			'show_in_nav_menus'   => true,
+			// зависит от public
+			'show_in_menu'        => true,
+			// показывать ли в меню адмнки
+			'show_in_admin_bar'   => true,
+			// зависит от show_in_menu
+			'show_in_rest'        => true,
+			// добавить в REST API. C WP 4.7
+			'rest_base'           => NULL,
+			// $post_type. C WP 4.7
+			'menu_position'       => 4,
+			'menu_icon'           => 'dashicons-awards',
+			//'capability_type'   => 'post',
+			//'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
+			//'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
+			'hierarchical'        => false,
+			'supports'            => [ 'title', 'editor', 'author', 'thumbnail' ],
+			// 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+			'has_archive'         => false,
+			'rewrite'             => true,
+			'query_var'           => true,
+		] );
 	}
 
 
@@ -470,7 +529,7 @@ function style_symfony_setup() {
 
 	function theme_register_nav_menu() {
 		register_nav_menu( 'header-menu', 'Меню в шапке' );
-		add_theme_support( 'post-thumbnails', array( 'post', 'slider', 'service', 'banner', 'project') );
+		add_theme_support( 'post-thumbnails', array( 'post', 'slider', 'service', 'banner', 'project', 'review') );
 
 //		add_theme_support( 'post-formats', $args = array( 'aside', 'gallery', 'video' ) );
 		add_image_size( 'slider_thumb', 1920, 850, true );
