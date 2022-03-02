@@ -452,7 +452,7 @@ if ( have_posts() ): while ( have_posts() ): the_post();
 	<?php
 	endif; ?>
 
-<!-- Преимущества -->
+<!-- Баннер 1 -->
 <?php
 	if ( $settings['show_banner_1'] === 'Да' ):
 
@@ -460,8 +460,6 @@ if ( have_posts() ): while ( have_posts() ): the_post();
 
 		if ( isset( $banner ) ):
 			?>
-
-
             <section class="section section-sm bg-default text-md-center">
                 <?php
                 $banner_id = $banner->ID;
@@ -614,6 +612,10 @@ if ( have_posts() ): while ( have_posts() ): the_post();
 
 
 
+
+
+
+
     <section class="section section-sm bg-default"
              id="calculator">
         <div class="container">
@@ -700,36 +702,43 @@ if ( have_posts() ): while ( have_posts() ): the_post();
 	              ]
               );
 
-              if (count($reviews) > 0):
-                  foreach ($reviews as $index=>$post):
-                      setup_postdata( $post)
-              ?>
-              <!-- Quote Lisa-->
-            <article class="quote-lisa">
+              if ( count( $reviews ) > 0 ):
+	              foreach ( $reviews as $index => $post ):
+		              setup_postdata( $post )
+		              ?>
+                      <!-- Quote Lisa-->
+                      <article class="quote-lisa">
               <div class="quote-lisa-body"><a class="quote-lisa-figure"
-                                              href="<?php the_field('link'); ?>"><img
+                                              href="<?php
+                                              the_field( 'link' ); ?>"><img
                               class="img-circles"
-                                                            src="<?php echo
-                                                            get_the_post_thumbnail_url() ?>"
-                                                            alt=""
-                                                            width="100"
-                                                            height="100"/></a>
+                              src="<?php
+				              echo
+				              get_the_post_thumbnail_url() ?>"
+                              alt=""
+                              width="100"
+                              height="100"/></a>
                 <div class="quote-lisa-text">
                   <p class="q">
-                      <?php the_content();?>
+                      <?php
+                      the_content(); ?>
                   </p>
                 </div>
-                <h5 class="quote-lisa-cite"><a href="<?php the_field('link'); ?>"><?php the_title()
-                        ?></a></h5>
-                <p class="quote-lisa-status"><?php the_field( 'status'); ?></p>
+                <h5 class="quote-lisa-cite"><a href="<?php
+	                the_field( 'link' ); ?>"><?php
+		                the_title()
+		                ?></a></h5>
+                <p class="quote-lisa-status"><?php
+	                the_field( 'status' ); ?></p>
               </div>
             </article>
 
 
-                  <?php
-                  wp_reset_postdata();
-                  endforeach; ?>
-              <?php endif; ?>
+		              <?php
+		              wp_reset_postdata();
+	              endforeach; ?>
+              <?php
+              endif; ?>
           </div>
         </div>
       </section>
@@ -740,365 +749,71 @@ if ( have_posts() ): while ( have_posts() ): the_post();
 
 
 
+<?php
+	if ( $settings['show_banner_2'] === 'Да' ):
 
+		$banner = $settings['banner_object_2'];
 
+		if ( isset( $banner ) ):
+			?>
+            <section class="section bg-default text-center">
+                <?php
+                $banner_id = $banner->ID;
 
+                $image_url = has_post_thumbnail( $banner_id )
+	                ? get_the_post_thumbnail_url( $banner_id ) : '';
 
-    <section class="section section-sm bg-default"
-             id="team"
-             data-type="anchor">
-        <div class="container">
-          <div class="oh">
-            <div class="title-decoration-lines wow slideInUp"
-                 data-wow-delay="0s">
-              <h6 class="title-decoration-lines-content">Team of professionals</h6>
-            </div>
-          </div>
-          <div class="row row-30">
-            <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInRight"
-                 data-wow-delay="0s">
-              <!-- Team Classic-->
-              <article class="team-classic"><a class="team-classic-figure"
-                                               href="#"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/team-1-370x406.jpg"
-                                                             alt=""
-                                                             width="370"
-                                                             height="406"/></a>
-                <div class="team-classic-caption">
-                  <h5 class="team-classic-name"><a href="#">Ryan Wilson</a></h5>
-                  <p class="team-classic-status">Founder, Owner</p>
-                </div>
-              </article>
-            </div>
-            <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInRight"
-                 data-wow-delay=".1s">
-              <!-- Team Classic-->
-              <article class="team-classic"><a class="team-classic-figure"
-                                               href="#"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/team-2-370x406.jpg"
-                                                             alt=""
-                                                             width="370"
-                                                             height="406"/></a>
-                <div class="team-classic-caption">
-                  <h5 class="team-classic-name"><a href="#">Amanda Clark</a></h5>
-                  <p class="team-classic-status">Measure Technician</p>
-                </div>
-              </article>
-            </div>
-            <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInRight"
-                 data-wow-delay=".2s">
-              <!-- Team Classic-->
-              <article class="team-classic"><a class="team-classic-figure"
-                                               href="#"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/team-3-370x406.jpg"
-                                                             alt=""
-                                                             width="370"
-                                                             height="406"/></a>
-                <div class="team-classic-caption">
-                  <h5 class="team-classic-name"><a href="#">Sam Robinson</a></h5>
-                  <p class="team-classic-status">Installer</p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Popular products-->
+                $title                  = $banner->post_title;
+                $words_until_separation = $banner->words_until_separation;
+                $separated_parts        = separate_title(
+	                $title,
+	                $words_until_separation
+                );
+                list( $first_part, $second_part ) = $separated_parts;
 
+                ?>
 
-
-
-
-
-
-
-
-
-
-    <section class="section section-sm bg-default">
-        <div class="container">
-          <div class="oh">
-            <div class="title-decoration-lines wow slideInUp"
-                 data-wow-delay="0s">
-              <h6 class="title-decoration-lines-content">Popular products</h6>
-            </div>
-          </div>
-            <!-- Owl Carousel-->
-          <div class="owl-carousel owl-products"
-               data-items="1"
-               data-sm-items="2"
-               data-md-items="3"
-               data-lg-items="4"
-               data-margin="30"
-               data-dots="true"
-               data-autoplay="true">
-            <!-- Product-->
-            <article class="product">
-              <div class="product-figure"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/product-13-270x280.png"
-                                               alt=""
-                                               width="270"
-                                               height="280"/>
-                <div class="product-button"><a class="button button-md button-white button-ujarak"
-                                               href="#">Add to cart</a></div>
-              </div>
-              <h5 class="product-title"><a href="#">Burdur Pearl</a></h5>
-              <div class="product-price-wrap">
-                <div class="product-price">$235.00</div>
-              </div>
-            </article>
-            <!-- Product-->
-            <article class="product">
-              <div class="product-figure"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/product-18-270x280.png"
-                                               alt=""
-                                               width="270"
-                                               height="280"/>
-                <div class="product-button"><a class="button button-md button-white button-ujarak"
-                                               href="#">Add to cart</a></div>
-              </div>
-              <h5 class="product-title"><a href="#">Seagrass Limestone</a></h5>
-              <div class="product-price-wrap">
-                <div class="product-price">$254.00</div>
-              </div>
-            </article>
-            <!-- Product-->
-            <article class="product">
-              <div class="product-figure"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/product-19-270x280.png"
-                                               alt=""
-                                               width="270"
-                                               height="280"/>
-                <div class="product-button"><a class="button button-md button-white button-ujarak"
-                                               href="#">Add to cart</a></div>
-              </div>
-              <h5 class="product-title"><a href="#">Ibiza white</a></h5>
-              <div class="product-price-wrap">
-                <div class="product-price">$650.00</div>
-              </div>
-            </article>
-            <!-- Product-->
-            <article class="product">
-              <div class="product-figure"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/product-5-270x280.png"
-                                               alt=""
-                                               width="270"
-                                               height="280"/>
-                <div class="product-button"><a class="button button-md button-white button-ujarak"
-                                               href="#">Add to cart</a></div>
-              </div>
-              <h5 class="product-title"><a href="#">Lymra Limestone</a></h5>
-              <div class="product-price-wrap">
-                <div class="product-price">$650.00</div>
-              </div>
-            </article>
-            <!-- Product-->
-            <article class="product">
-              <div class="product-figure"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/product-2-270x280.png"
-                                               alt=""
-                                               width="270"
-                                               height="280"/>
-                <div class="product-button"><a class="button button-md button-white button-ujarak"
-                                               href="#">Add to cart</a></div>
-              </div>
-              <h5 class="product-title"><a href="#">Carrara Marble</a></h5>
-              <div class="product-price-wrap">
-                <div class="product-price">$94.00</div>
-              </div>
-            </article>
-            <!-- Product-->
-            <article class="product">
-              <div class="product-figure"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/product-1-270x280.png"
-                                               alt=""
-                                               width="270"
-                                               height="280"/>
-                <div class="product-button"><a class="button button-md button-white button-ujarak"
-                                               href="#">Add to cart</a></div>
-              </div>
-              <h5 class="product-title"><a href="#">Bardiglio Grey</a></h5>
-              <div class="product-price-wrap">
-                <div class="product-price">$520.00</div>
-              </div>
-            </article>
-            <!-- Product-->
-            <article class="product">
-              <div class="product-figure"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/product-3-270x280.png"
-                                               alt=""
-                                               width="270"
-                                               height="280"/>
-                <div class="product-button"><a class="button button-md button-white button-ujarak"
-                                               href="#">Add to cart</a></div>
-              </div>
-              <h5 class="product-title"><a href="#">Bastille Gray</a></h5>
-              <div class="product-price-wrap">
-                <div class="product-price">$200.00</div>
-              </div>
-            </article>
-            <!-- Product-->
-            <article class="product">
-              <div class="product-figure"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/product-4-270x280.png"
-                                               alt=""
-                                               width="270"
-                                               height="280"/>
-                <div class="product-button"><a class="button button-md button-white button-ujarak"
-                                               href="#">Add to cart</a></div>
-              </div>
-              <h5 class="product-title"><a href="#">Old World Acacia</a></h5>
-              <div class="product-price-wrap">
-                <div class="product-price">$550.00</div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-      <!-- Latest posts-->
-
-
-
-
-
-
-
-
-
-
-
-    <section class="section section-md bg-default"
-             id="news"
-             data-type="anchor">
-        <div class="container">
-          <div class="oh">
-            <div class="title-decoration-lines wow slideInUp"
-                 data-wow-delay="0s">
-              <h6 class="title-decoration-lines-content">Latest posts</h6>
-            </div>
-          </div>
-          <div class="row row-50 justify-content-center">
-            <div class="col-sm-9 col-md-6 col-lg-5 col-xl-4 wow fadeInLeft"
-                 data-wow-delay="0s">
-              <!-- Post Creative-->
-              <article class="post post-creative">
-                <div class="post-creative-header">
-                  <div class="group-md">
-                    <div>
-                      <div class="unit flex-column flex-sm-row unit-spacing-sm align-items-center">
-                        <div class="unit-left"><img class="img-circles"
-                                                    src="https://livedemo00.template-help.com/wt_prod-22310/images/user-4-49x49.jpg"
-                                                    alt=""
-                                                    width="49"
-                                                    height="49"/>
-                        </div>
-                        <div class="unit-body">
-                          <div class="post-creative-author">by<a href="#"> Mary Lee</a></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="post-creative-time">
-                      <time datetime="2019-05-17">May 17, 2019</time>
-                    </div>
-                  </div>
-                </div><a class="post-creative-figure"
-                         href="#"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/post-16-370x267.jpg"
-                                       alt=""
-                                       width="370"
-                                       height="267"/></a>
-                <div class="post-creative-footer">
-                  <h5 class="post-creative-title"><a href="#">Flooring Pro’s Secrets that can Raise Your Home Value</a></h5>
-                </div>
-              </article>
-            </div>
-            <div class="col-sm-9 col-md-6 col-lg-5 col-xl-4 wow fadeInLeft"
-                 data-wow-delay=".1s">
-              <!-- Post Creative-->
-              <article class="post post-creative">
-                <div class="post-creative-header">
-                  <div class="group-md">
-                    <div>
-                      <div class="unit flex-column flex-sm-row unit-spacing-sm align-items-center">
-                        <div class="unit-left"><img class="img-circles"
-                                                    src="https://livedemo00.template-help.com/wt_prod-22310/images/user-5-49x49.jpg"
-                                                    alt=""
-                                                    width="49"
-                                                    height="49"/>
-                        </div>
-                        <div class="unit-body">
-                          <div class="post-creative-author">by<a href="#"> Rupert Wood</a></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="post-creative-time">
-                      <time datetime="2019-05-04">May 04, 2019</time>
-                    </div>
-                  </div>
-                </div><a class="post-creative-figure"
-                         href="#"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/post-17-370x267.jpg"
-                                       alt=""
-                                       width="370"
-                                       height="267"/></a>
-                <div class="post-creative-footer">
-                  <h5 class="post-creative-title"><a href="#">Best laminate &amp; Hardwood Flooring Trends for 2019</a></h5>
-                </div>
-              </article>
-            </div>
-            <div class="col-sm-9 col-md-6 col-lg-5 col-xl-4 wow fadeInLeft"
-                 data-wow-delay=".2s">
-              <!-- Post Creative-->
-              <article class="post post-creative">
-                <div class="post-creative-header">
-                  <div class="group-md">
-                    <div>
-                      <div class="unit flex-column flex-sm-row unit-spacing-sm align-items-center">
-                        <div class="unit-left"><img class="img-circles"
-                                                    src="https://livedemo00.template-help.com/wt_prod-22310/images/user-6-49x49.jpg"
-                                                    alt=""
-                                                    width="49"
-                                                    height="49"/>
-                        </div>
-                        <div class="unit-body">
-                          <div class="post-creative-author">by<a href="#"> Ann Anderson</a></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="post-creative-time">
-                      <time datetime="2019-05-17">May 17, 2019</time>
-                    </div>
-                  </div>
-                </div><a class="post-creative-figure"
-                         href="#"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/post-18-370x267.jpg"
-                                       alt=""
-                                       width="370"
-                                       height="267"/></a>
-                <div class="post-creative-footer">
-                  <h5 class="post-creative-title"><a href="#">How to Pick Floors / Carpet &amp; Get the Best Deals</a></h5>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Section CTA 2-->
-
-
-
-
-
-
-
-
-
-
-    <section class="section bg-default text-center">
-        <div class="parallax-container"
-             data-parallax-img="https://livedemo00.template-help.com/wt_prod-22310/images/bg-cta-3.jpg">
-          <div class="parallax-content section-xl section-inset-custom-1 context-dark">
+                <div class="parallax-container"
+                     data-parallax-img="<?php
+				     echo $image_url; ?>">
+<div class="parallax-content section-xl section-inset-custom-1 context-dark">
             <div class="container">
               <div class="row justify-content-center">
                 <div class="col-md-9 col-lg-7 col-xl-6">
-                  <h3 class="oh"><span class="d-inline-block wow slideInDown"
-                                       data-wow-delay="0s">Ready for a new experience?</span></h3>
+
+
+                        <h3 class="oh"><span class="d-inline-block wow slideInDown"
+                                             data-wow-delay="0s">
+                                <?php
+                                echo $first_part ?><br>
+                                <?php
+                                echo $second_part ?></span></h3>
                   <p class="oh"><span class="d-inline-block wow slideInUp"
-                                      data-wow-delay=".2s">Flooria is ready to give your floor a completely new look, which is achieved throgh numerous solutions you can find at our store.</span></p><a class="button button-primary button-ujarak wow fadeInUp"
-                                                                                                                                                                                                          href="#"
-                                                                                                                                                                                                          data-wow-delay=".1s">Shop now</a>
+                                      data-wow-delay=".2s">
+                         <?php
+                         echo $banner->post_content ?>
+                      </span></p><a class="button button-primary button-ujarak wow fadeInUp"
+                                    href="<?php
+                                    the_field( 'link', $banner_id ); ?>"
+                                    data-wow-delay=".1s"><?php
+		                the_field( 'button_text', $banner_id );
+		                ?></a>
+                    </div>
+
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
+		<?php
+		endif; ?>
+	<?php
+	endif; ?>
+
+
+
+
+
     <section class="section section-md bg-gray-4">
         <div class="container">
           <!-- Owl Carousel-->
@@ -1111,42 +826,53 @@ if ( have_posts() ): while ( have_posts() ): the_post();
                data-dots="true"
                data-animation-in="fadeIn"
                data-animation-out="fadeOut"
-               data-autoplay="true"><a class="clients-modern"
-                                       href="#"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/clients-1-270x145.png"
-                                                     alt=""
-                                                     width="270"
-                                                     height="145"/></a><a class="clients-modern"
-                                                                          href="#"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/clients-2-270x145.png"
-                                                                                        alt=""
-                                                                                        width="270"
-                                                                                        height="145"/></a><a class="clients-modern"
-                                                                                                             href="#"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/clients-3-270x145.png"
-                                                                                                                           alt=""
-                                                                                                                           width="270"
-                                                                                                                           height="145"/></a><a class="clients-modern"
-                                                                                                                                                href="#"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/clients-4-270x145.png"
-                                                                                                                                                              alt=""
-                                                                                                                                                              width="270"
-                                                                                                                                                              height="145"/></a><a class="clients-modern"
-                                                                                                                                                                                   href="#"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/clients-5-270x145.png"
-                                                                                                                                                                                                 alt=""
-                                                                                                                                                                                                 width="270"
-                                                                                                                                                                                                 height="145"/></a><a class="clients-modern"
-                                                                                                                                                                                                                      href="#"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/clients-6-270x145.png"
-                                                                                                                                                                                                                                    alt=""
-                                                                                                                                                                                                                                    width="270"
-                                                                                                                                                                                                                                    height="145"/></a><a class="clients-modern"
-                                                                                                                                                                                                                                                         href="#"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/clients-7-270x145.png"
-                                                                                                                                                                                                                                                                       alt=""
-                                                                                                                                                                                                                                                                       width="270"
-                                                                                                                                                                                                                                                                       height="145"/></a><a class="clients-modern"
-                                                                                                                                                                                                                                                                                            href="#"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/clients-8-270x145.png"
-                                                                                                                                                                                                                                                                                                          alt=""
-                                                                                                                                                                                                                                                                                                          width="270"
-                                                                                                                                                                                                                                                                                                          height="145"/></a></div>
+               data-autoplay="true">
+              <a class="clients-modern"
+                 href="#">
+                  <img src="https://livedemo00.template-help.com/wt_prod-22310/images/clients-1-270x145.png"
+                       alt=""
+                       width="270"
+                       height="145"/>
+              </a>
+              <a class="clients-modern"
+                 href="#">
+                  <img src="https://livedemo00.template-help.com/wt_prod-22310/images/clients-2-270x145.png"
+                       alt=""
+                       width="270"
+                       height="145"/>
+              </a>
+              <a class="clients-modern"
+                 href="#"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/clients-3-270x145.png"
+                               alt=""
+                               width="270"
+                               height="145"/></a><a class="clients-modern"
+                                                    href="#"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/clients-4-270x145.png"
+                                                                  alt=""
+                                                                  width="270"
+                                                                  height="145"/></a><a class="clients-modern"
+                                                                                       href="#"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/clients-5-270x145.png"
+                                                                                                     alt=""
+                                                                                                     width="270"
+                                                                                                     height="145"/></a><a class="clients-modern"
+                                                                                                                          href="#"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/clients-6-270x145.png"
+                                                                                                                                        alt=""
+                                                                                                                                        width="270"
+                                                                                                                                        height="145"/></a><a class="clients-modern"
+                                                                                                                                                             href="#"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/clients-7-270x145.png"
+                                                                                                                                                                           alt=""
+                                                                                                                                                                           width="270"
+                                                                                                                                                                           height="145"/></a><a class="clients-modern"
+                                                                                                                                                                                                href="#"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/clients-8-270x145.png"
+                                                                                                                                                                                                              alt=""
+                                                                                                                                                                                                              width="270"
+                                                                                                                                                                                                              height="145"/></a></div>
         </div>
       </section>
       <!-- Contact information-->
+
+
+
+
 
 
 
@@ -1195,6 +921,10 @@ if ( have_posts() ): while ( have_posts() ): the_post();
         </div>
       </section>
       <!-- Contact Form and Gmap-->
+
+
+
+
 
 
 
