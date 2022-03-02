@@ -449,7 +449,7 @@ function style_symfony_setup() {
 		wp_enqueue_style( 'style', get_stylesheet_uri() );
 		wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.css', array() );
 		wp_enqueue_style( 'bootstrap' );
-		wp_enqueue_style( 'fonts', '//fonts.googleapis.com/css?family=Poppins:400,500%7CTeko:300,400,500%7CMaven+Pro:500' );
+		wp_enqueue_style( 'fonts', '//fonts.googleapis.com/css?family=Poppins:400,500%7CMaven+Pro:500' );
 
 		wp_enqueue_style( 'theme-fonts', get_template_directory_uri() . '/assets/css/fonts.css' );
 
@@ -470,7 +470,7 @@ function style_symfony_setup() {
 
 	function theme_register_nav_menu() {
 		register_nav_menu( 'header-menu', 'Меню в шапке' );
-		add_theme_support( 'post-thumbnails', array( 'post', 'slider', 'service', 'banner' ) );
+		add_theme_support( 'post-thumbnails', array( 'post', 'slider', 'service', 'banner', 'project') );
 
 //		add_theme_support( 'post-formats', $args = array( 'aside', 'gallery', 'video' ) );
 		add_image_size( 'slider_thumb', 1920, 850, true );

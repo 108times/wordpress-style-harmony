@@ -22,6 +22,8 @@
     <list default="true" id="1dc89ba5-e4ac-4600-9ff2-d4b09f92c4fd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/style-harmony/assets/css/fonts.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/style-harmony/assets/css/fonts.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/style-harmony/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/style-harmony/assets/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/themes/style-harmony/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/style-harmony/functions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/themes/style-harmony/page.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/style-harmony/page.php" afterDir="false" />
     </list>
@@ -91,7 +93,7 @@
       <workItem from="1645632992518" duration="59721000" />
       <workItem from="1645980451976" duration="32737000" />
       <workItem from="1646151860941" duration="3499000" />
-      <workItem from="1646192125549" duration="7179000" />
+      <workItem from="1646192125549" duration="11794000" />
     </task>
     <servers />
   </component>
@@ -148,12 +150,12 @@
     </state>
     <state x="560" y="374" key="NewPhpFileDialog/0.0.1440.912/2160.0.1536.816@0.0.1440.912" timestamp="1645634168837" />
     <state x="747" y="423" key="NewPhpFileDialog/0.0.1920.1032@0.0.1920.1032" timestamp="1645287839722" />
-    <state x="2449" y="80" width="1226" height="899" key="SettingsEditor" timestamp="1646216232000">
+    <state x="2449" y="80" width="1226" height="899" key="SettingsEditor" timestamp="1646217600133">
       <screen x="2160" y="0" width="1920" height="1032" />
     </state>
     <state x="0" y="0" key="SettingsEditor/0.0.1440.912/2160.0.1536.816@0.0.1440.912" timestamp="1645633015945" />
     <state x="0" y="0" width="1440" height="912" key="SettingsEditor/0.0.1440.912/2160.0.1920.1032@0.0.1440.912" timestamp="1645980499294" />
-    <state x="2449" y="80" width="1226" height="899" key="SettingsEditor/0.0.1440.912/2160.0.1920.1032@2160.0.1920.1032" timestamp="1646216232000" />
+    <state x="2449" y="80" width="1226" height="899" key="SettingsEditor/0.0.1440.912/2160.0.1920.1032@2160.0.1920.1032" timestamp="1646217600133" />
     <state x="108" y="15" key="SettingsEditor/0.0.1440.912@0.0.1440.912" timestamp="1645812111844" />
     <state x="2692" y="235" key="run.anything.popup" timestamp="1645891889056">
       <screen x="2160" y="0" width="1920" height="1032" />
@@ -168,16 +170,5 @@
   </component>
   <component name="WordPressConfiguration" enabled="true">
     <wordpressPath>D:\OpenServer\domains\wordpress-style-harmony</wordpressPath>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/wp-content/themes/style-harmony/page.php</url>
-          <line>328</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
