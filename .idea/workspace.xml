@@ -21,6 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1dc89ba5-e4ac-4600-9ff2-d4b09f92c4fd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/style-harmony/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/style-harmony/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/style-harmony/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/style-harmony/functions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/themes/style-harmony/page.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/style-harmony/page.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +92,7 @@
       <workItem from="1645632992518" duration="59721000" />
       <workItem from="1645980451976" duration="32737000" />
       <workItem from="1646151860941" duration="3499000" />
-      <workItem from="1646192125549" duration="20008000" />
+      <workItem from="1646192125549" duration="22670000" />
     </task>
     <servers />
   </component>

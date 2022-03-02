@@ -532,7 +532,6 @@ if ( have_posts() ): while ( have_posts() ): the_post();
 				'orderby'          => 'meta_value',
 			]
 		);
-		console_log( $projects, true );
 
 		?>
         <section class="section section-sm bg-default"
@@ -615,6 +614,7 @@ if ( have_posts() ): while ( have_posts() ): the_post();
 
 
 
+<!--Калькулятор-->
 
     <section class="section section-sm bg-default"
              id="calculator">
@@ -626,38 +626,39 @@ if ( have_posts() ): while ( have_posts() ): the_post();
             </div>
           </div>
           <div class="row row-lg row-50 justify-content-center border-classic border-classic-2">
-<!--            <div class="col-sm-6 col-md-3 wow fadeInLeft"-->
-<!--                 data-wow-delay="0s">-->
-<!--              <div class="counter-creative">-->
-<!--                <div class="counter-creative-number"><span class="counter">12</span><span class="icon counter-creative-icon fl-bigmug-line-trophy55"></span>-->
-<!--                </div>-->
-<!--                <h6 class="counter-creative-title">Awards</h6>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <div class="col-sm-6 col-md-3 wow fadeInLeft"-->
-<!--                 data-wow-delay=".1s">-->
-<!--              <div class="counter-creative">-->
-<!--                <div class="counter-creative-number"><span class="counter">2</span><span class="symbol">k</span><span class="icon counter-creative-icon fl-bigmug-line-cube29"></span>-->
-<!--                </div>-->
-<!--                <h6 class="counter-creative-title">Projects</h6>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <div class="col-sm-6 col-md-3 wow fadeInLeft"-->
-<!--                 data-wow-delay=".2s">-->
-<!--              <div class="counter-creative">-->
-<!--                <div class="counter-creative-number"><span class="counter">679</span><span class="icon counter-creative-icon fl-bigmug-line-sun81"></span>-->
-<!--                </div>-->
-<!--                <h6 class="counter-creative-title">Happy clients</h6>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <div class="col-sm-6 col-md-3 wow fadeInLeft"-->
-<!--                 data-wow-delay=".3s">-->
-<!--              <div class="counter-creative">-->
-<!--                <div class="counter-creative-number"><span class="counter">25</span><span class="icon counter-creative-icon fl-bigmug-line-user143"></span>-->
-<!--                </div>-->
-<!--                <h6 class="counter-creative-title">Team members</h6>-->
-<!--              </div>-->
-<!--            </div>-->
+              <div style="height: 300px; width: 200px"></div>
+              <!--            <div class="col-sm-6 col-md-3 wow fadeInLeft"-->
+              <!--                 data-wow-delay="0s">-->
+              <!--              <div class="counter-creative">-->
+              <!--                <div class="counter-creative-number"><span class="counter">12</span><span class="icon counter-creative-icon fl-bigmug-line-trophy55"></span>-->
+              <!--                </div>-->
+              <!--                <h6 class="counter-creative-title">Awards</h6>-->
+              <!--              </div>-->
+              <!--            </div>-->
+              <!--            <div class="col-sm-6 col-md-3 wow fadeInLeft"-->
+              <!--                 data-wow-delay=".1s">-->
+              <!--              <div class="counter-creative">-->
+              <!--                <div class="counter-creative-number"><span class="counter">2</span><span class="symbol">k</span><span class="icon counter-creative-icon fl-bigmug-line-cube29"></span>-->
+              <!--                </div>-->
+              <!--                <h6 class="counter-creative-title">Projects</h6>-->
+              <!--              </div>-->
+              <!--            </div>-->
+              <!--            <div class="col-sm-6 col-md-3 wow fadeInLeft"-->
+              <!--                 data-wow-delay=".2s">-->
+              <!--              <div class="counter-creative">-->
+              <!--                <div class="counter-creative-number"><span class="counter">679</span><span class="icon counter-creative-icon fl-bigmug-line-sun81"></span>-->
+              <!--                </div>-->
+              <!--                <h6 class="counter-creative-title">Happy clients</h6>-->
+              <!--              </div>-->
+              <!--            </div>-->
+              <!--            <div class="col-sm-6 col-md-3 wow fadeInLeft"-->
+              <!--                 data-wow-delay=".3s">-->
+              <!--              <div class="counter-creative">-->
+              <!--                <div class="counter-creative-number"><span class="counter">25</span><span class="icon counter-creative-icon fl-bigmug-line-user143"></span>-->
+              <!--                </div>-->
+              <!--                <h6 class="counter-creative-title">Team members</h6>-->
+              <!--              </div>-->
+              <!--            </div>-->
           </div>
         </div>
       </section>
@@ -666,7 +667,7 @@ if ( have_posts() ): while ( have_posts() ): the_post();
 
 
 
-
+<!-- Отзывы -->
 <?php
 	if ( $settings['show_reviews'] === 'Да' ): ?>
         <section class="section section-sm bg-default"
@@ -748,7 +749,7 @@ if ( have_posts() ): while ( have_posts() ): the_post();
 
 
 
-
+<!--Баннер #2-->
 <?php
 	if ( $settings['show_banner_2'] === 'Да' ):
 
@@ -813,203 +814,52 @@ if ( have_posts() ): while ( have_posts() ): the_post();
 
 
 
+<!--Клиенты-->
+<?php
+	if ( $settings['show_clients'] === 'Да' ):
+		$clients = get_posts(
+			[
+				'numberposts'      => $settings['clients_amount'],
+				'post_type'        => 'client',
+				'suppress_filters' => true,
+				'order'            => 'ASC',
+				'meta_key'         => 'sort',
+				'orderby'          => 'meta_value',
+			]
+		);
 
-    <section class="section section-md bg-gray-4">
+		?>
+        <section class="section section-md bg-gray-4">
         <div class="container">
           <!-- Owl Carousel-->
-          <div class="owl-carousel owl-clients"
-               data-items="1"
-               data-sm-items="2"
-               data-md-items="3"
-               data-lg-items="4"
-               data-margin="30"
-               data-dots="true"
-               data-animation-in="fadeIn"
-               data-animation-out="fadeOut"
-               data-autoplay="true">
-              <a class="clients-modern"
-                 href="#">
-                  <img src="https://livedemo00.template-help.com/wt_prod-22310/images/clients-1-270x145.png"
-                       alt=""
-                       width="270"
-                       height="145"/>
-              </a>
-              <a class="clients-modern"
-                 href="#">
-                  <img src="https://livedemo00.template-help.com/wt_prod-22310/images/clients-2-270x145.png"
-                       alt=""
-                       width="270"
-                       height="145"/>
-              </a>
-              <a class="clients-modern"
-                 href="#"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/clients-3-270x145.png"
+
+            <div class="row row-30 justify-content-center">
+		<?php
+		if ( count( $clients ) > 0 ): ?>
+			<?php
+			foreach ( $clients as $ndex => $post ): ?>
+                <div class="col-sm-6 col-lg-4 wow fadeInRight"
+                     data-wow-delay="0s">
+                     <a class="clients-modern"
+                        href="<?php the_field('link') ?>">
+                          <img src="<?php echo get_the_post_thumbnail_url() ?>"
                                alt=""
                                width="270"
-                               height="145"/></a><a class="clients-modern"
-                                                    href="#"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/clients-4-270x145.png"
-                                                                  alt=""
-                                                                  width="270"
-                                                                  height="145"/></a><a class="clients-modern"
-                                                                                       href="#"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/clients-5-270x145.png"
-                                                                                                     alt=""
-                                                                                                     width="270"
-                                                                                                     height="145"/></a><a class="clients-modern"
-                                                                                                                          href="#"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/clients-6-270x145.png"
-                                                                                                                                        alt=""
-                                                                                                                                        width="270"
-                                                                                                                                        height="145"/></a><a class="clients-modern"
-                                                                                                                                                             href="#"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/clients-7-270x145.png"
-                                                                                                                                                                           alt=""
-                                                                                                                                                                           width="270"
-                                                                                                                                                                           height="145"/></a><a class="clients-modern"
-                                                                                                                                                                                                href="#"><img src="https://livedemo00.template-help.com/wt_prod-22310/images/clients-8-270x145.png"
-                                                                                                                                                                                                              alt=""
-                                                                                                                                                                                                              width="270"
-                                                                                                                                                                                                              height="145"/></a></div>
+                               height="145"/>
+                         <h5 class="client-title"><?php the_title() ?></h5>
+                      </a>
+                </div>
+			<?php
+			endforeach; ?>
+		<?php
+		endif; ?>
+
+            </div>
+
         </div>
       </section>
-      <!-- Contact information-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <section class="section section-sm section-first bg-default"
-             id="contacts"
-             data-type="anchor">
-        <div class="container">
-          <div class="row row-30 justify-content-center">
-            <div class="col-sm-8 col-md-6 col-lg-4">
-              <article class="box-contacts">
-                <div class="box-contacts-body">
-                  <div class="box-contacts-icon fl-bigmug-line-cellphone55"></div>
-                  <div class="box-contacts-decor"></div>
-                  <p class="box-contacts-link"><a href="tel:#">+1 323-913-4688</a></p>
-                  <p class="box-contacts-link"><a href="tel:#">+1 323-888-4554</a></p>
-                </div>
-              </article>
-            </div>
-            <div class="col-sm-8 col-md-6 col-lg-4">
-              <article class="box-contacts">
-                <div class="box-contacts-body">
-                  <div class="box-contacts-icon fl-bigmug-line-up104"></div>
-                  <div class="box-contacts-decor"></div>
-                  <p class="box-contacts-link"><a href="#">4730 Crystal Springs Dr, Los Angeles, CA 90027</a></p>
-                </div>
-              </article>
-            </div>
-            <div class="col-sm-8 col-md-6 col-lg-4">
-              <article class="box-contacts">
-                <div class="box-contacts-body">
-                  <div class="box-contacts-icon fl-bigmug-line-chat55"></div>
-                  <div class="box-contacts-decor"></div>
-                  <p class="box-contacts-link"><a href="mailto:#">mail@demolink.org</a></p>
-                  <p class="box-contacts-link"><a href="mailto:#">info@demolink.org</a></p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Contact Form and Gmap-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <section class="section section-sm section-last bg-default text-md-left">
-        <div class="container">
-          <div class="row row-50">
-            <div class="col-lg-6 section-map-small">
-              <div class="google-map-container"
-                   data-center="9870 St Vincent Place, Glasgow, DC 45 Fr 45."
-                   data-styles="[{&quot;featureType&quot;:&quot;administrative&quot;,&quot;elementType&quot;:&quot;labels.text.fill&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#444444&quot;}]},{&quot;featureType&quot;:&quot;landscape&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#f2f2f2&quot;}]},{&quot;featureType&quot;:&quot;poi&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;off&quot;}]},{&quot;featureType&quot;:&quot;poi.business&quot;,&quot;elementType&quot;:&quot;geometry.fill&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;on&quot;}]},{&quot;featureType&quot;:&quot;road&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;saturation&quot;:-100},{&quot;lightness&quot;:45}]},{&quot;featureType&quot;:&quot;road.highway&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;simplified&quot;}]},{&quot;featureType&quot;:&quot;road.arterial&quot;,&quot;elementType&quot;:&quot;labels.icon&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;off&quot;}]},{&quot;featureType&quot;:&quot;transit&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;off&quot;}]},{&quot;featureType&quot;:&quot;water&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#b4d4e1&quot;},{&quot;visibility&quot;:&quot;on&quot;}]}]">
-                <div class="google-map"></div>
-                <ul class="google-map-markers">
-                  <li data-location="9870 St Vincent Place, Glasgow, DC 45 Fr 45."
-                      data-description="9870 St Vincent Place, Glasgow"
-                      data-icon="https://livedemo00.template-help.com/wt_prod-22310/images/gmap_marker.png"
-                      data-icon-active="https://livedemo00.template-help.com/wt_prod-22310/images/gmap_marker_active.png"></li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <h4 class="text-spacing-50">Contact Form</h4>
-              <form class="rd-form rd-mailform"
-                    data-form-output="form-output-global"
-                    data-form-type="contact"
-                    method="post"
-                    action="bat/rd-mailform.php">
-                <div class="row row-14 gutters-14">
-                  <div class="col-sm-6">
-                    <div class="form-wrap">
-                      <input class="form-input"
-                             id="contact-first-name"
-                             type="text"
-                             name="name"
-                             data-constraints="@Required">
-                      <label class="form-label"
-                             for="contact-first-name">First Name</label>
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="form-wrap">
-                      <input class="form-input"
-                             id="contact-last-name"
-                             type="text"
-                             name="name"
-                             data-constraints="@Required">
-                      <label class="form-label"
-                             for="contact-last-name">Last Name</label>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="form-wrap">
-                      <input class="form-input"
-                             id="contact-email"
-                             type="email"
-                             name="email"
-                             data-constraints="@Email @Required">
-                      <label class="form-label"
-                             for="contact-email">E-mail</label>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="form-wrap">
-                      <label class="form-label"
-                             for="contact-message">Message</label>
-                      <textarea class="form-input"
-                                id="contact-message"
-                                name="message"
-                                data-constraints="@Required"></textarea>
-                    </div>
-                  </div>
-                </div>
-                <button class="button button-primary button-pipaluk"
-                        type="submit">Send Message</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
+	<?php
+	endif; ?>
 
 <?php
 endwhile;
