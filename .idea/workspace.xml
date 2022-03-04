@@ -21,8 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1dc89ba5-e4ac-4600-9ff2-d4b09f92c4fd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/style-harmony/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/style-harmony/assets/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/themes/style-harmony/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/style-harmony/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/style-harmony/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/style-harmony/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/themes/style-harmony/page.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/style-harmony/page.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +57,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/wp-content/themes/style-harmony/assets/fonts" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettier.files.pattern" value="{**/*,*}.{js,ts,jsx,tsx,php}" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -69,10 +69,11 @@
       <recent name="D:\OpenServer\domains\wordpress-style-harmony\wp-content\themes\style-harmony\template-parts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\OpenServer\domains\wordpress-style-harmony\wp-content\themes\style-harmony\admin-part-customizations" />
+      <recent name="D:\OpenServer\domains\wordpress-style-harmony\wp-content\themes\style-harmony\framework-customizations" />
       <recent name="D:\OpenServer\domains\wordpress-style-harmony\wp-content\themes\style-harmony\assets\images" />
       <recent name="D:\OpenServer\domains\wordpress-style-harmony\wp-content\themes\style-harmony\assets\fonts" />
       <recent name="D:\OpenServer\domains\wordpress-style-harmony\wp-content\themes\style-harmony" />
-      <recent name="D:\OpenServer\domains\wordpress-style-harmony\wp-content\themes\style-harmony\lib\plugins" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -92,7 +93,8 @@
       <workItem from="1645632992518" duration="59721000" />
       <workItem from="1645980451976" duration="32737000" />
       <workItem from="1646151860941" duration="3499000" />
-      <workItem from="1646192125549" duration="22670000" />
+      <workItem from="1646192125549" duration="32222000" />
+      <workItem from="1646371472996" duration="93000" />
     </task>
     <servers />
   </component>
@@ -144,27 +146,28 @@
     </state>
     <state width="1391" height="227" key="GridCell.Tab.0.right/0.0.1440.912/2160.0.1920.1032@0.0.1440.912" timestamp="1645197130656" />
     <state width="1391" height="227" key="GridCell.Tab.0.right/0.0.1440.912@0.0.1440.912" timestamp="1645205948295" />
-    <state x="560" y="374" key="NewPhpFileDialog" timestamp="1645634168837">
-      <screen x="0" y="0" width="1440" height="912" />
+    <state x="2907" y="423" key="NewPhpFileDialog" timestamp="1646317742973">
+      <screen x="2160" y="0" width="1920" height="1032" />
     </state>
     <state x="560" y="374" key="NewPhpFileDialog/0.0.1440.912/2160.0.1536.816@0.0.1440.912" timestamp="1645634168837" />
+    <state x="2907" y="423" key="NewPhpFileDialog/0.0.1440.912/2160.0.1920.1032@2160.0.1920.1032" timestamp="1646317742973" />
     <state x="747" y="423" key="NewPhpFileDialog/0.0.1920.1032@0.0.1920.1032" timestamp="1645287839722" />
-    <state x="2518" y="59" width="1226" height="899" key="SettingsEditor" timestamp="1646240397293">
+    <state x="2571" y="68" width="1226" height="899" key="SettingsEditor" timestamp="1646371572398">
       <screen x="2160" y="0" width="1920" height="1032" />
     </state>
     <state x="0" y="0" key="SettingsEditor/0.0.1440.912/2160.0.1536.816@0.0.1440.912" timestamp="1645633015945" />
     <state x="0" y="0" width="1440" height="912" key="SettingsEditor/0.0.1440.912/2160.0.1920.1032@0.0.1440.912" timestamp="1645980499294" />
-    <state x="2518" y="59" width="1226" height="899" key="SettingsEditor/0.0.1440.912/2160.0.1920.1032@2160.0.1920.1032" timestamp="1646240397293" />
+    <state x="2571" y="68" width="1226" height="899" key="SettingsEditor/0.0.1440.912/2160.0.1920.1032@2160.0.1920.1032" timestamp="1646371572398" />
     <state x="108" y="15" key="SettingsEditor/0.0.1440.912@0.0.1440.912" timestamp="1645812111844" />
     <state x="2692" y="235" key="run.anything.popup" timestamp="1645891889056">
       <screen x="2160" y="0" width="1920" height="1032" />
     </state>
     <state x="2692" y="235" key="run.anything.popup/0.0.1440.912/2160.0.1920.1032@2160.0.1920.1032" timestamp="1645891889056" />
-    <state x="2559" y="0" width="934" height="1035" key="search.everywhere.popup" timestamp="1646236850543">
+    <state x="2559" y="0" width="934" height="1035" key="search.everywhere.popup" timestamp="1646318510922">
       <screen x="2160" y="0" width="1920" height="1032" />
     </state>
     <state x="299" y="0" key="search.everywhere.popup/0.0.1440.912/2160.0.1920.1032@0.0.1440.912" timestamp="1645014740022" />
-    <state x="2559" y="0" width="934" height="1035" key="search.everywhere.popup/0.0.1440.912/2160.0.1920.1032@2160.0.1920.1032" timestamp="1646236850543" />
+    <state x="2559" y="0" width="934" height="1035" key="search.everywhere.popup/0.0.1440.912/2160.0.1920.1032@2160.0.1920.1032" timestamp="1646318510922" />
     <state x="359" y="0" width="840" height="1107" key="search.everywhere.popup/0.0.1728.1104/2160.0.1920.1032@0.0.1728.1104" timestamp="1645431364472" />
     <state x="399" y="0" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1032@0.0.1920.1032" timestamp="1645288683349" />
   </component>

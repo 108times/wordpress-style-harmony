@@ -20,14 +20,6 @@ get_header();
 
 <?php
 
-function console_log( $value, $jsonify = false ) {
-	$string = '`' . $value . '`';
-	if ( $jsonify ) {
-		$value  = json_encode( $value );
-		$string = 'JSON.parse(`' . $value . '`.replaceAll("\n", ""))';
-	}
-	echo '<script>console.log(' . $string . ')</script>';
-}
 
 function alert( $value, $text = '' ) {
 	echo '<script>setTimeout(() => alert(`' . $text . ' ==> ' . ( $value )
@@ -837,8 +829,9 @@ if ( have_posts() ): while ( have_posts() ): the_post();
 		<?php
 		if ( count( $clients ) > 0 ): ?>
 			<?php
-			foreach ( $clients as $ndex => $post ): ?>
+			foreach ( $clients as $index => $post ): ?>
                 <div class="col-sm-6 col-lg-4 wow fadeInRight"
+                     style="margin-bottom: 130px"
                      data-wow-delay="0s">
                      <a class="clients-modern"
                         href="<?php the_field('link') ?>">
