@@ -38,21 +38,21 @@ function style_symfony_setup() {
 		register_post_type( 'pages_settings', [
 			'label'               => NULL,
 			'labels'              => [
-				'name'               => 'Настройки страниц',
+				'name'               => 'Настройки темы',
 				// основное название для типа записи
 				'singular_name'      => 'Настройка страницы',
 				// название для одной записи этого типа
-				'add_new'            => 'Добавить настройку страницы',
+				'add_new'            => 'Добавить',
 				// для добавления новой записи
-				'add_new_item'       => 'Добавление настройки страницы',
+				'add_new_item'       => 'Добавление',
 				// заголовка у вновь создаваемой записи в админ-панели.
-				'edit_item'          => 'Редактирование настройки страницы',
+				'edit_item'          => 'Редактирование',
 				// для редактирования типа записи
-				'new_item'           => 'Новая настройка страницы',
+				'new_item'           => 'Новая запись',
 				// текст новой записи
-				'view_item'          => 'Смотреть настройку страницы',
+				'view_item'          => 'Смотреть',
 				// для просмотра записи этого типа.
-				'search_items'       => 'Искать настройку страницы',
+				'search_items'       => 'Искать',
 				// для поиска по этим типам записи
 				'not_found'          => 'Не найдено',
 				// если в результате поиска ничего не было найдено
@@ -60,10 +60,10 @@ function style_symfony_setup() {
 				// если не было найдено в корзине
 				'parent_item_colon'  => '',
 				// для родителей (у древовидных типов)
-				'menu_name'          => 'Настройки страниц',
+				'menu_name'          => 'Настройки темы',
 				// название меню
 			],
-			'description'         => 'Настройки для разных страниц',
+			'description'         => 'Настройки для блоков темы',
 			'public'              => true,
 			'publicly_queryable'  => true,
 			// зависит от public
@@ -663,7 +663,7 @@ function style_symfony_setup() {
 			'rest_base'           => NULL,
 			// $post_type. C WP 4.7
 			'menu_position'       => 4,
-			'menu_icon'           => 'dashicons-phone',
+			'menu_icon'           => 'dashicons-format-gallery',
 			//'capability_type'   => 'post',
 			//'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
 			//'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
@@ -703,7 +703,7 @@ function style_symfony_setup() {
 	add_action( 'after_setup_theme', 'theme_register_nav_menu' );
 	function theme_register_nav_menu() {
 		register_nav_menu( 'header-menu', 'Меню в шапке' );
-		add_theme_support( 'post-thumbnails', array( 'post', 'slider', 'service', 'banner', 'project', 'review', 'client') );
+		add_theme_support( 'post-thumbnails', array( 'post', 'slider', 'service', 'banner', 'project', 'review', 'client', 'gallery') );
 
 //		add_theme_support( 'post-formats', $args = array( 'aside', 'gallery', 'video' ) );
 		add_image_size( 'slider_thumb', 1920, 850, true );
